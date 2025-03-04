@@ -1,0 +1,71 @@
+<div class="watchlist-container">
+  <!-- Form for Adding Items -->
+  <form (submit)="addToWatchlist()">
+    <label>Title:</label>
+    <input type="text" [(ngModel)]="newItem.title" name="title" required />
+
+    <label>Genre:</label>
+    <select [(ngModel)]="newItem.genre" name="genre" required>
+      <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+    </select>
+
+    <label>Status:</label>
+    <select [(ngModel)]="newItem.status" name="status" required>
+      <option *ngFor="let option of statusOptions" [value]="option.value">{{ option.label }}</option>
+    </select>
+
+    <button type="submit">Add</button>
+  </form>
+
+  <!-- Watchlist Grid Container -->
+  <div class="watchlist">
+    <div *ngFor="let item of watchlist" class="watchlist-item">
+      <div class="item-content">
+        <h3 class="item-title">{{ item.title }}</h3>
+        <div class="item-details">
+          <p><strong>Type:</strong> {{ item.type }}</p>
+          <p><strong>Genre:</strong> {{ item.genre }}</p>
+          <p><strong>Status:</strong> <span class="status-badge" [ngClass]="item.status">
+            {{ statusOptions.find(opt => opt.value === item.status)?.label || item.status }}
+          </span></p>
+          <p><strong>Created:</strong> {{ item.createdAt | date:'medium' }}</p>
+          <p><strong>Updated:</strong> {{ item.updatedAt | date:'medium' }}</p>
+          <p><strong>ID:</strong> {{ item._id || item.id }}</p>
+        </div>
+      </div>
+      <div class="watchlist-item-actions">
+        <button class="update-btn" (click)="updateItemStatus(item)" [disabled]="item.status === 'watched'">
+          {{ item.status === 'pending' ? (isMoviesPage ? 'Mark as Watched' : 'Mark as Read') : (isMoviesPage ? 'Already Watched' : 'Already Read') }}
+        </button>
+        <button class="edit-btn" (click)="enableEdit(item)">Edit</button>
+        <button class="delete-btn" (click)="deleteItem(item._id || item.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal" *ngIf="editMode">
+    <div class="modal-content">
+      <h3>Edit Item</h3>
+      <form (submit)="updateItem()">
+        <label>Title:</label>
+        <input type="text" [(ngModel)]="editItem.title" name="title" required />
+
+        <label>Genre:</label>
+        <select [(ngModel)]="editItem.genre" name="genre" required>
+          <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+        </select>
+
+        <label>Status:</label>
+        <select [(ngModel)]="editItem.status" name="status" required>
+          <option *ngFor="let option of statusOptions" [value]="option.value">{{ option.label }}</option>
+        </select>
+
+        <div class="modal-actions">
+          <button type="submit" class="save-btn">Save</button>
+          <button type="button" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

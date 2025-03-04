@@ -1,0 +1,45 @@
+<div class="home-container">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="title">Welcome to Watchlist App</h1>
+      <p class="subtitle">Your personal space to track movies, series, and books</p>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <div class="feature-card">
+      <div class="feature-icon">🎬</div>
+      <h2>Movies & Series</h2>
+      <p>Keep track of your favorite films and TV shows</p>
+      <button [routerLink]="['/watchlist', 'movies']" class="feature-btn">
+        View Movies
+      </button>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📚</div>
+      <h2>Books</h2>
+      <p>Organize your reading list and track your progress</p>
+      <button [routerLink]="['/watchlist', 'books']" class="feature-btn">
+        View Books
+      </button>
+    </div>
+  </div>
+
+  <div class="stats-section">
+    <div class="stat-card">
+      <div class="stat-number">🎯</div>
+      <div class="stat-label">Track Progress</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">📱</div>
+      <div class="stat-label">Access Anywhere</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">✨</div>
+      <div class="stat-label">Stay Organized</div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

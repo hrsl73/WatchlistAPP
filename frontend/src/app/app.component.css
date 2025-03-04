@@ -1,0 +1,119 @@
+/* === App Title Styling === */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #FF5733, #FF8A00, #FFD166);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* === Section Titles === */
+h2, h3 {
+  color: #FFD166;
+}
+
+/* === Form Styling === */
+form {
+  background: rgba(40, 41, 62, 0.95); /* Dark glass effect */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  margin: auto;
+}
+
+label {
+  font-weight: bold;
+  color: #FFCC70;
+  font-size: 1rem;
+  display: block;
+  margin-top: 10px;
+}
+
+/* === Input Fields === */
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  background: #292A3D;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  outline: 2px solid #FFD166;
+}
+
+.app-container {
+  min-height: 100vh;
+  background: var(--background-gradient);
+  padding: 2rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-title {
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.nav-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.2s ease;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-link.active {
+  background: var(--primary-gradient);
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .app-title {
+    font-size: 2rem;
+  }
+
+  .app-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+  }
+}

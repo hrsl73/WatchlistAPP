@@ -1,0 +1,14 @@
+<div class="app-container">
+  <nav class="navbar">
+    <h1 class="app-title">Watchlist App</h1>
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+      <a routerLink="/watchlist/movies" routerLinkActive="active" class="nav-link">Movies</a>
+      <a routerLink="/watchlist/books" routerLinkActive="active" class="nav-link">Books</a>
+    </div>
+  </nav>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
