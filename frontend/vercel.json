@@ -1,13 +1,15 @@
 {
+  "version": 2,
+  "framework": null,
+  "buildCommand": "ng build --configuration=production",
+  "outputDirectory": "dist/frontend",
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
-  "build": {
-    "env": {
-      "ANGULAR_DISABLE_PRERENDERING": "true"
-    }
-  }
+  "routes": [],
+  "env": {},
+  "cache": true
 }
