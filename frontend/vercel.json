@@ -8,8 +8,5 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ],
-  "routes": [],
-  "env": {},
-  "cache": true
+  ]
 }
